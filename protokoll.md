@@ -11,7 +11,7 @@ Beide benutzen react-konva.
 
 Das erste hat eine Hintegrundfarbe
 
-![canvas1](https://user-images.githubusercontent.com/43468189/54297061-555c7d80-45b6-11e9-8604-25b1d522d8b4.PNG)
+![rect2](https://user-images.githubusercontent.com/43468189/54297064-555c7d80-45b6-11e9-9378-e8a1a1e55c84.PNG)
 
 welche sich bei onlick ändert allerdings lässt sich noch kein Text hineinschreiben,
 
@@ -23,6 +23,6 @@ welche sich bei onlick ändert allerdings lässt sich noch kein Text hineinschre
 Beim zweiten wird Text hineingeschrieben allerding lässt es sich nicht stylen.
 Also man kann keine andere Schriftfarbe, Hintergrundfarbe, Schriftart, ... auswählen.
 
-![rect2](https://user-images.githubusercontent.com/43468189/54297064-555c7d80-45b6-11e9-9378-e8a1a1e55c84.PNG)
+![canvas1](https://user-images.githubusercontent.com/43468189/54297061-555c7d80-45b6-11e9-8604-25b1d522d8b4.PNG)
 
 
