@@ -11,11 +11,11 @@ Beide benutzen react-konva.
 
 Das erste hat eine Hintegrundfarbe
 
-<img src=".\images\rect1.PNG" height="200px" width="250px">
+<img src=".\images.zip\rect1.PNG" height="200px" width="250px">
 
 welche sich bei onlick ändert allerdings lässt sich noch kein Text hineinschreiben,
 
-<img src=".\images\rect2.PNG" height="200px" width="250px">
+<img src=".\images.zip\rect2.PNG" height="200px" width="250px">
 
 
 #### 2) Mit Canvas
@@ -23,4 +23,4 @@ welche sich bei onlick ändert allerdings lässt sich noch kein Text hineinschre
 Beim zweiten wird Text hineingeschrieben allerding lässt es sich nicht stylen.
 Also man kann keine andere Schriftfarbe, Hintergrundfarbe, Schriftart, ... auswählen.
 
-<img src=".\images\canvas1.PNG" height="300px" width="250px">
+<img src=".\images.zip\canvas1.PNG" height="300px" width="250px">
