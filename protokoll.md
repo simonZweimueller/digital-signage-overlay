@@ -11,7 +11,7 @@ Beide benutzen react-konva.
 
 Das erste hat eine Hintegrundfarbe
 
-![rect2](https://user-images.githubusercontent.com/43468189/54297064-555c7d80-45b6-11e9-9378-e8a1a1e55c84.PNG | width=100)
+![rect2](https://user-images.githubusercontent.com/43468189/54297064-555c7d80-45b6-11e9-9378-e8a1a1e55c84.PNG?v=4&s=50)
 
 welche sich bei onlick ändert allerdings lässt sich noch kein Text hineinschreiben,
 
