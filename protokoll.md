@@ -25,4 +25,6 @@ Also man kann keine andere Schriftfarbe, Hintergrundfarbe, Schriftart, ... ausw√
 
 ![canvas1](https://user-images.githubusercontent.com/43468189/54297061-555c7d80-45b6-11e9-8604-25b1d522d8b4.PNG)
 
+Update 28.03.2019:
+Die Schriftart und Schriftfarbe des Bildes lassen sich nun √§ndern.
 
