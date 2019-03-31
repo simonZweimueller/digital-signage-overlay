@@ -29,3 +29,9 @@ Update (28.03.2019):
 <br>
 Die Schriftart und Schriftfarbe des Bildes lassen sich nun ändern.
 
+Update (31.03.2019):
+<br>
+![Unbenannt](https://user-images.githubusercontent.com/43468189/55289406-b82b8280-53c6-11e9-9eb1-c77255dc313c.PNG)
+Mehrere verschiedene Texte lassen sich generieren.<br>
+Die Hintergrundfarbe ist auch änderbar.
+
