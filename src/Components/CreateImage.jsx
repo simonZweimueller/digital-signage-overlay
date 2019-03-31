@@ -5,57 +5,69 @@ import { Layer, Rect, Stage, Group } from "react-konva";
 class CreateImage extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "", imgWidth: 1920, imgHeight: 1080 };
+    this.state = { imgWidth: 1920, imgHeight: 1080 };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateCanvas = this.updateCanvas.bind(this);
+    this.handleSubmitCanvas = this.handleSubmitCanvas.bind(this);
+    this.createCanvas = this.createCanvas.bind(this);
+
+    this.handleSubmitText = this.handleSubmitText.bind(this);
+    this.createText = this.createText.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
-
-  handleSubmit(event) {
+  handleSubmitCanvas(event) {
     event.preventDefault();
-    this.updateCanvas(this.state.value);
+    this.createCanvas();
+  }
+
+  handleSubmitText(event) {
+    event.preventDefault();
+    this.createText();
   }
 
   /*componentDidMount() {
     this.updateCanvas();
   }*/
 
-  updateCanvas(test) {
+  createCanvas() {
     const ctx = this.refs.canvas.getContext("2d");
+
+    let bgColor = document.getElementById("bgColor").value;
+
+    ctx.clearRect(0, 0, this.state.imgWidth, this.state.imgHeight);
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, this.state.imgWidth, this.state.imgHeight);
+  }
+
+  createText() {
+    const ctx = this.refs.canvas.getContext("2d");
+
+    let msg = document.getElementById("msg").value;
     let font = document.getElementById("font").value;
     let fontColor = document.getElementById("fontColor").value;
     let fontSize = document.getElementById("fontSize").value;
     let fontPWidth = document.getElementById("fontPWidth").value;
     let fontPHeight = document.getElementById("fontPHeight").value;
-    let bgColor = document.getElementById("bgColor").value;
-    document.getElementById("myCanvas").style.backgroundColor = bgColor;
 
-    console.log(fontColor);
-
-    ctx.clearRect(0, 0, 1920, 1080);
-    //ctx.fillText("Hello World", 20, 20);
     ctx.font = fontSize + "px " + font;
     ctx.fillStyle = fontColor;
     ctx.textAlign = "center";
-    ctx.fillText(test, fontPWidth, fontPHeight);
+    ctx.fillText(msg, fontPWidth, fontPHeight);
   }
 
   render() {
     return (
       <React.Fragment>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmitCanvas}>
+          <label>Background Color: </label>
+          <input id="bgColor" type="color" />
+          <br />
+          <input type="submit" value="Create Image" />
+        </form>
+
+        <form onSubmit={this.handleSubmitText}>
           <label>
             Text:
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
+            <input type="text" id="msg" />
           </label>
           <br />
           <label>
@@ -78,11 +90,9 @@ class CreateImage extends Component {
           <label>Font Position height (in px): </label>
           <input id="fontPHeight" type="number" />
           <br />
-          <label>Background Color: </label>
-          <input id="bgColor" type="color" />
-          <br />
-          <input type="submit" value="Create Image" />
+          <input type="submit" value="Add text" />
         </form>
+
         <canvas
           ref="canvas"
           width={this.state.imgWidth}
