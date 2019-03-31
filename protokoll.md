@@ -8,7 +8,7 @@ Momentan gibt es 2 React Programme.
 Beide benutzen react-konva.
 
 #### 1) Mit Rectangle
-
+#### Dieser Test wird nicht für das Projekt verwendet
 Das erste Bild das man erstellt hat eine Hintegrundfarbe
 
 ![rect2](https://user-images.githubusercontent.com/43468189/54297064-555c7d80-45b6-11e9-9378-e8a1a1e55c84.PNG)
