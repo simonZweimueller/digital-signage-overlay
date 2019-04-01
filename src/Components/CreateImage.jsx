@@ -12,6 +12,9 @@ class CreateImage extends Component {
 
     this.handleSubmitText = this.handleSubmitText.bind(this);
     this.createText = this.createText.bind(this);
+
+    this.handleSave = this.handleSave.bind(this);
+    this.saveImage = this.saveImage.bind(this);
   }
 
   handleSubmitCanvas(event) {
@@ -22,6 +25,11 @@ class CreateImage extends Component {
   handleSubmitText(event) {
     event.preventDefault();
     this.createText();
+  }
+
+  handleSave(event) {
+    event.preventDefault();
+    this.saveImage();
   }
 
   /*componentDidMount() {
@@ -52,6 +60,15 @@ class CreateImage extends Component {
     ctx.fillStyle = fontColor;
     ctx.textAlign = "center";
     ctx.fillText(msg, fontPWidth, fontPHeight);
+  }
+
+  saveImage() {
+    let canvasSave = document.getElementById("myCanvas");
+    const d = canvasSave.toDataURL("image/png");
+    document.getElementById("downloadLink").innerHTML =
+      "<a href='" + d + "' id='downloadButton' download='test.png'></a>";
+    document.getElementById("downloadButton").click();
+    console.log("Saved!");
   }
 
   render() {
@@ -93,12 +110,16 @@ class CreateImage extends Component {
           <input type="submit" value="Add text" />
         </form>
 
+        <input type="button" value="Save Image" onClick={this.handleSave} />
+
         <canvas
           ref="canvas"
           width={this.state.imgWidth}
           height={this.state.imgHeight}
           id="myCanvas"
         />
+
+        <div id="downloadLink" />
       </React.Fragment>
     );
   }
