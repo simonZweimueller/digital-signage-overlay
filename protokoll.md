@@ -20,4 +20,8 @@ Update (31.03.2019):
 ![Unbenannt](https://user-images.githubusercontent.com/43468189/55289406-b82b8280-53c6-11e9-9eb1-c77255dc313c.PNG)
 Mehrere verschiedene Texte lassen sich generieren.<br>
 Die Hintergrundfarbe ist auch änderbar.
-
+<br>
+<br>
+Update (01.04.2019):
+<br>
+Es gibt nun einen Downloadbutton der den canvas als png im Download Ordner speichert.
