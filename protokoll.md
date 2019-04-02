@@ -25,3 +25,8 @@ Die Hintergrundfarbe ist auch änderbar.
 Update (01.04.2019):
 <br>
 Es gibt nun einen Downloadbutton der den canvas als png im Download Ordner speichert.
+<br> <br>
+Update (02.04.2019):
+<br>
+Es wurde css hinzugefügt um die Struktur zu verbessern.
+![image](https://user-images.githubusercontent.com/43468189/55423734-cde3a800-557e-11e9-8c81-1a4484311f93.png)
