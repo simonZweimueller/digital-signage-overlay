@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Layer, Rect, Stage, Group } from "react-konva";
+import "../css/CRStyle.css";
 
 class CreateImage extends Component {
   constructor(props) {
@@ -66,7 +67,9 @@ class CreateImage extends Component {
     let canvasSave = document.getElementById("myCanvas");
     const d = canvasSave.toDataURL("image/png");
     document.getElementById("downloadLink").innerHTML =
-      "<a href='" + d + "' id='downloadButton' download='test.png'></a>";
+      "<a href='" +
+      d +
+      "' id='downloadButton' download='imageDownload.png'></a>";
     document.getElementById("downloadButton").click();
     console.log("Saved!");
   }
@@ -78,22 +81,18 @@ class CreateImage extends Component {
           <label>Background Color: </label>
           <input id="bgColor" type="color" />
           <br />
-          <input type="submit" value="Create Image" />
+          <input type="submit" value="Create Image" class="button" />
         </form>
 
         <form onSubmit={this.handleSubmitText}>
-          <label>
-            Text:
-            <input type="text" id="msg" />
-          </label>
+          <label>Text:</label>
+          <input type="text" id="msg" />
           <br />
-          <label>
-            Font:
-            <select name="font" size="1" id="font">
-              <option>Arial</option>
-              <option>Calibri</option>
-            </select>
-          </label>
+          <label>Font:</label>
+          <select name="font" size="1" id="font">
+            <option>Arial</option>
+            <option>Calibri</option>
+          </select>
           <br />
           <label>Font Color: </label>
           <input id="fontColor" type="color" />
@@ -107,10 +106,16 @@ class CreateImage extends Component {
           <label>Font Position height (in px): </label>
           <input id="fontPHeight" type="number" />
           <br />
-          <input type="submit" value="Add text" />
+          <input type="submit" value="Add text" class="button" />
         </form>
 
-        <input type="button" value="Save Image" onClick={this.handleSave} />
+        <input
+          type="button"
+          value="Save Image"
+          id="saveImg"
+          class="button"
+          onClick={this.handleSave}
+        />
 
         <canvas
           ref="canvas"
