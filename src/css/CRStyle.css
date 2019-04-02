@@ -1,0 +1,39 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+}
+
+label {
+  margin: 10px;
+  margin-right: 15px;
+}
+
+#myCanvas {
+  width: 30%;
+  margin: 20px;
+  margin-left: 40px;
+}
+
+#saveImg {
+  float: left;
+  margin: 30px;
+  margin-top: 15.5%;
+}
+
+form {
+  float: left;
+  margin: 30px;
+}
+
+.button {
+  margin: 10px;
+  margin-right: 10px;
+  width: 100px;
+}
+
+#downloadLink {
+  visibility: unset;
+}
