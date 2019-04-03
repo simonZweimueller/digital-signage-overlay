@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { Layer, Rect, Stage, Group } from "react-konva";
 import "../css/CRStyle.css";
 
 class CreateImage extends Component {
