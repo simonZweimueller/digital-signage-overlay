@@ -13,6 +13,7 @@ Zum Schluss wird das Bild zum xibo geschickt.
 ## Wie führt man das Programm aus
 ### 1)
 Nodejs downloaden um npm zu bekommen
+
 <https://nodejs.org/en/>
 ### 2)
 node modules herunterladen
