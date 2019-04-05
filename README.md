@@ -17,9 +17,9 @@ Nodejs downloaden um npm zu bekommen
 ### 2)
 node modules herunterladen
 
-    `npm update`
+    npm update
 ### 3)
 App starten
 
-    `npm start`
+    npm start
 
