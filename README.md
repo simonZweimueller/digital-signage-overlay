@@ -9,3 +9,16 @@ Ziel ist es eine Website zu erstellen auf der Benutzer entweder ein Bild direkt 
 Anschließend kann der Benutzer das Display auswählen auf welchem das Bild angezeigt werden soll.
 Es können Termine vom Benutzer festlegt, die bestimmen wann das Bild angezeigt wird. 
 Zum Schluss wird das Bild zum xibo geschickt.
+
+## Wie führt man das Programm aus
+### 1)
+    Nodejs downloaden um npm zu bekommen
+### 2)
+    npm i -g create-react-app
+### 3)
+    create-react-app ds-overview
+
+### 4) Starten
+    cd ds-overview
+    npm start
+
