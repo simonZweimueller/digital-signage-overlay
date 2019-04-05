@@ -65,4 +65,4 @@ getAccessToken() {
   }  
 ```
 
-![Error](/images/error.PNG)
+![Error](/img/error.PNG)
