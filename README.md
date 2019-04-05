@@ -13,13 +13,11 @@ Zum Schluss wird das Bild zum xibo geschickt.
 ## Wie führt man das Programm aus
 ### 1)
 Nodejs downloaden um npm zu bekommen
+<https://nodejs.org/en/>
 ### 2)
-    npm i -g create-react-app
+node modules herunterladen
+    `npm update`
 ### 3)
-    create-react-app ds-overview
-### 4)
-Github repo ins ds-overview kopieren und ersetzen
-### 5) Starten
-    cd ds-overview
-    npm start
+App starten
+    `npm start`
 
