@@ -4,32 +4,13 @@
 
 ### von Leon Tea und Simon Zweimüller
 
-#### 1) Mit Canvas
+#### Zusammenfassung
 
-Beim diesem Bild wird Text hineingeschrieben allerding lässt es sich nicht stylen.
-Also man kann keine andere Schriftfarbe, Hintergrundfarbe, Schriftart, ... auswählen.
+Wir haben eine React-App erstellt, die der User nutzen kann um Mitteilungen zu erstellen und zu speichern.
 
-![canvas1](https://user-images.githubusercontent.com/43468189/54297061-555c7d80-45b6-11e9-8604-25b1d522d8b4.PNG)
+Zur Erstellung der Mitteilung verwenden wir Canvas und die Library [React-Canvas](https://github.com/Flipboard/react-canvas).  Der User hat die Möglichkeit Hintergrund-, Schriftfarbe, Schriftart und die Position des Textes festzulegen. Die erstellte Mitteilung als png kann er dann herunterladen.
 
-Update (28.03.2019): 
-<br>
-Die Schriftart und Schriftfarbe des Bildes lassen sich nun ändern.
-
-Update (31.03.2019):
-<br>
-![Unbenannt](https://user-images.githubusercontent.com/43468189/55289406-b82b8280-53c6-11e9-9eb1-c77255dc313c.PNG)
-Mehrere verschiedene Texte lassen sich generieren.<br>
-Die Hintergrundfarbe ist auch änderbar.
-<br>
-<br>
-Update (01.04.2019):
-<br>
-Es gibt nun einen Downloadbutton der den canvas als png im Download Ordner speichert.
-<br> <br>
-Update (02.04.2019):
-<br>
-Es wurde css hinzugefügt um die Struktur zu verbessern.
-![image](https://user-images.githubusercontent.com/43468189/55423734-cde3a800-557e-11e9-8c81-1a4484311f93.png)
+Es ist geplant diese App mit nodejs zu deployen.
 
 #### Verbindung zu Xibo
 Zurzeit wird noch an der Verbindung zu Xibo gearbeitet. Den Code für den Zugriff auf die Xibo-API generieren wir mit Postman. Jedoch bekommen wir zurzeit keinen Access Token, weil der Browser den Zugriff auf Xibo nicht erlaubt, da er bereits mit nodejs verbunden ist.
@@ -67,3 +48,32 @@ getAccessToken() {
 
 Fehlermeldung:
 ![Error](/img/error.PNG)
+
+
+#### 1) Mit Canvas
+
+Beim diesem Bild wird Text hineingeschrieben allerding lässt es sich nicht stylen.
+Also man kann keine andere Schriftfarbe, Hintergrundfarbe, Schriftart, ... auswählen.
+
+![canvas1](https://user-images.githubusercontent.com/43468189/54297061-555c7d80-45b6-11e9-8604-25b1d522d8b4.PNG)
+
+Update (28.03.2019): 
+<br>
+Die Schriftart und Schriftfarbe des Bildes lassen sich nun ändern.
+
+Update (31.03.2019):
+<br>
+![Unbenannt](https://user-images.githubusercontent.com/43468189/55289406-b82b8280-53c6-11e9-9eb1-c77255dc313c.PNG)
+Mehrere verschiedene Texte lassen sich generieren.<br>
+Die Hintergrundfarbe ist auch änderbar.
+<br>
+<br>
+Update (01.04.2019):
+<br>
+Es gibt nun einen Downloadbutton der den canvas als png im Download Ordner speichert.
+<br> <br>
+Update (02.04.2019):
+<br>
+Es wurde css hinzugefügt um die Struktur zu verbessern.
+![image](https://user-images.githubusercontent.com/43468189/55423734-cde3a800-557e-11e9-8c81-1a4484311f93.png)
+
