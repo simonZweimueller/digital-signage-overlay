@@ -10,7 +10,11 @@ Anschließend kann der Benutzer das Display auswählen auf welchem das Bild ange
 Es können Termine vom Benutzer festlegt, die bestimmen wann das Bild angezeigt wird. 
 Zum Schluss wird das Bild zum xibo geschickt.
 
-## Wie führt man das Programm aus
+### Aktueller Stand:
+
+Der Clientseitige Teil mit react ist fertig und wäre einsatzbereit.
+
+## Wie führt man das Programm aus:
 ### 1)
 Nodejs downloaden um npm zu bekommen
 
