@@ -14,6 +14,7 @@ Zum Schluss wird das Bild zum xibo geschickt.
 
 Der Clientseitige Teil mit react ist fertig und wäre einsatzbereit.
 Zurzeit haben wir Probleme mit dem Zugriff auf die Xibo API. Wir bekommen nämlich keinen Access Token, weil der Browser den Zugriff nicht erlaubt.
+
 Fehlermeldung:
 ![Error](/img/error.PNG)
 
