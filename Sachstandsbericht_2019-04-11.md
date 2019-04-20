@@ -80,3 +80,10 @@ Update (02.04.2019):
 Es wurde css hinzugefügt um die Struktur zu verbessern.
 ![react_app3](/img/react_app3.png)
 
+### Wo sieht man unsere Fortschritte?
+
+Auf unserem Github Repo (https://github.com/simonZweimueller/digital-signage-overlay) und im Youtrack (2018_3ahitm_itp_ds_overlay).
+
+### Was ist noch zu erledigen?
+
+Die Informationen vom Xibo bekommen und die User eingaben schicken.
