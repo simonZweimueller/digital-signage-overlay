@@ -12,7 +12,7 @@ Zum Schluss wird das Bild zum xibo geschickt.
 
 ### Aktueller Stand:
 
-Der Clientseitige Teil mit react ist fertig und wäre einsatzbereit.
+Der Clientseitige Teil mit react ist fast fertig.
 
 Zurzeit haben wir Probleme mit dem Zugriff auf die Xibo API. Wir bekommen nämlich keinen Access Token, weil der Browser den Zugriff nicht erlaubt.
 
