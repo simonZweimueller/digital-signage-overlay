@@ -29,7 +29,7 @@ node modules herunterladen
 
     npm update
 ### 3)
-App starten
+App starten und ausführen
 
     npm start
-
+und dann im Browser mit localhost:8080 öffnen
