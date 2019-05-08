@@ -47,7 +47,7 @@
 
 
     <div id="downloadLink" />
-    <button v-on:click="sendImg">Send</button>
+    <button v-on:click="fileUpload">Send</button>
   </div>
 </template>
 
@@ -96,7 +96,7 @@ export default {
       document.getElementById("downloadButton").click();
       console.log("Saved!");
     },
-    /*getAccessToken: function(){
+    getAccessToken: function(){
       var data = null;
 
       var xhr = new XMLHttpRequest();
@@ -114,29 +114,10 @@ export default {
 
       xhr.send(data);
       accessToken=data;
-    },*/
+    },
     sendImg: function(){
-      var data = null;
-
-      var xhr = new XMLHttpRequest();
-      xhr.withCredentials = true;
-
-      xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-          console.log(this.responseText);
-        }
-      });
-
-      xhr.open("POST", "http://localhost/api/authorize/access_token");
-      xhr.setRequestHeader("cache-control", "no-cache");
-      xhr.setRequestHeader("Postman-Token", "336ff6d3-4a78-4260-914b-dda31b48cfba");
-
-      xhr.send(data);
-      accessToken=data;
-      //getAccessToken();
-
       var data = new FormData();
-      data.append("name", "JAVA");
+      data.append("name", "Mitteilung");
 
       var xhr = new XMLHttpRequest();
       xhr.withCredentials = true;
@@ -153,8 +134,42 @@ export default {
       xhr.setRequestHeader("Postman-Token", "02fd1222-f847-4a50-95b7-c3cedf82512c");
 
       xhr.send(data);
+    },
+    createLayout: function(){
+      var data = new FormData();
+      data.append("name", "Mitteilung layout");
 
-      //todo layout POST
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
+        }
+      });
+
+      xhr.open("POST", "http://localhost/api/layout?envelope=1");
+      xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+      xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.11.0");
+      xhr.setRequestHeader("Accept", "*/*");
+      xhr.setRequestHeader("Cache-Control", "no-cache");
+      xhr.setRequestHeader("Postman-Token", "1765ec71-d551-4cdb-8474-f3cf979e2db3,a904c2e5-cb93-4dec-996a-bcf111bc74f3");
+      xhr.setRequestHeader("Host", "localhost");
+      xhr.setRequestHeader("cookie", "PHPSESSID=72kphem1qkqrb851101dtvc1hg");
+      xhr.setRequestHeader("accept-encoding", "gzip, deflate");
+      xhr.setRequestHeader("content-length", "269");
+      xhr.setRequestHeader("Connection", "keep-alive");
+      xhr.setRequestHeader("cache-control", "no-cache");
+
+      data.owner="tea";
+      data.permissions="zweimueller";
+
+      xhr.send(data);
+    },
+    fileUpload: function(){
+      this.getAccessToken();
+      this.sendImg();
+      this.createLayout();
     }
   }
 };
