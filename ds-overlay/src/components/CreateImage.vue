@@ -47,16 +47,18 @@
 
 
     <div id="downloadLink" />
-
+    <button v-on:click="sendImg">Send</button>
   </div>
 </template>
 
 <script>
+let accessToken;
+
 export default {
   name: "CreateImage",
   data() {
     return {
-      msg: "Welcome to Your Vue",
+      msg: "ds_overlay",
       imgWidth: 1920,
       imgHeight: 1080
     };
@@ -93,6 +95,66 @@ export default {
         "' id='downloadButton' download='imageDownload.png'></a>";
       document.getElementById("downloadButton").click();
       console.log("Saved!");
+    },
+    /*getAccessToken: function(){
+      var data = null;
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
+        }
+      });
+
+      xhr.open("POST", "http://localhost/api/authorize/access_token");
+      xhr.setRequestHeader("cache-control", "no-cache");
+      xhr.setRequestHeader("Postman-Token", "336ff6d3-4a78-4260-914b-dda31b48cfba");
+
+      xhr.send(data);
+      accessToken=data;
+    },*/
+    sendImg: function(){
+      var data = null;
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
+        }
+      });
+
+      xhr.open("POST", "http://localhost/api/authorize/access_token");
+      xhr.setRequestHeader("cache-control", "no-cache");
+      xhr.setRequestHeader("Postman-Token", "336ff6d3-4a78-4260-914b-dda31b48cfba");
+
+      xhr.send(data);
+      accessToken=data;
+      //getAccessToken();
+
+      var data = new FormData();
+      data.append("name", "JAVA");
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
+        }
+      });
+
+      xhr.open("POST", "http://localhost/api/library");
+      xhr.setRequestHeader("Authorization", "Bearer "+accessToken);
+      xhr.setRequestHeader("cache-control", "no-cache");
+      xhr.setRequestHeader("Postman-Token", "02fd1222-f847-4a50-95b7-c3cedf82512c");
+
+      xhr.send(data);
+
+      //todo layout POST
     }
   }
 };
