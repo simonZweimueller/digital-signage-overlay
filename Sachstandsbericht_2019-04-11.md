@@ -53,7 +53,7 @@ Fehlermeldung:
 
 Mit Postman generieren wir den Code für [API-Calls](https://xibo.org.uk/manual-tempel/api/). Wir haben ein [Tutorial](https://community.xibo.org.uk/t/1-8-api-introduction/7702) befolgt, um mit Postman auf die API zugreifen zu können. Weil wir eine [Collection] in Postman importiert haben, müssen wir den Code nicht selber schreiben. Wir müssen nur ergänzen, dass der `responseType = json` ist. 
 
-#### Protokoll React-App
+#### Protokoll React-App --> NICHT MEHR AKTUELL (es wird jetzt vue.js verwendet)
 
 Beim diesem Bild wird Text hineingeschrieben allerding lässt es sich nicht stylen.
 Also man kann keine andere Schriftfarbe, Hintergrundfarbe, Schriftart, ... auswählen.
