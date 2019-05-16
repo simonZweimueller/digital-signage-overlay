@@ -12,6 +12,8 @@ Zum Schluss wird das Bild zum xibo geschickt.
 
 ![Usecase Diagramm](/img/usecase_diagramm.png)
 
+![Systemarchitektur](/img/Systemarchitektur.PNG)
+
 ### Aktueller Stand:
 
 Der Clientseitige Teil mit vue.js ist fast fertig.
