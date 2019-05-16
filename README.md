@@ -10,6 +10,8 @@ Anschließend kann der Benutzer das Display auswählen auf welchem das Bild ange
 Es können Termine vom Benutzer festlegt, die bestimmen wann das Bild angezeigt wird. 
 Zum Schluss wird das Bild zum xibo geschickt.
 
+![Usecase Diagramm](/img/usecase_diagramm.png)
+
 ### Aktueller Stand:
 
 Der Clientseitige Teil mit vue.js ist fast fertig.
