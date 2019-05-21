@@ -1,6 +1,5 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div>
 
     <div id="imgCreation" class="creationPart">
           <label>Background Color: </label>
@@ -35,7 +34,7 @@
       </div>
 
       <div id="imgDownload" class="creationPart">
-        <button v-on:click="saveImg" id="downloadButton">Save Image</button>
+       <a href="" class='downloadButton' download='imageDownload.png'>Mitteilung herunterladen</a>
       </div>
 
      <canvas
@@ -45,9 +44,6 @@
           id="myCanvas"
         />
 
-
-    <div id="downloadLink" />
-
   </div>
 </template>
 
@@ -56,7 +52,6 @@ export default {
   name: "CreateImage",
   data() {
     return {
-      msg: "Welcome to Your Vue",
       imgWidth: 1920,
       imgHeight: 1080
     };
@@ -83,16 +78,13 @@ export default {
       ctx.fillStyle = fontColor;
       ctx.textAlign = "center";
       ctx.fillText(msg, fontPWidth, fontPHeight);
-    },
-    saveImg: function() {
+
       let canvasSave = document.getElementById("myCanvas");
       const d = canvasSave.toDataURL("image/png");
-      document.getElementById("downloadLink").innerHTML =
+      document.getElementById("imgDownload").innerHTML =
         "<a href='" +
         d +
-        "' id='downloadButton' download='imageDownload.png'></a>";
-      document.getElementById("downloadButton").click();
-      console.log("Saved!");
+        "' class='downloadButton' download='imageDownload.png' style='text-decoration: none'>Mitteilung herunterladen</a>";
     }
   }
 };
@@ -140,11 +132,13 @@ input {
   width: 100px;
 }
 
-#downloadButton {
+#imgDownload {
+  width: 250px;
   margin-top: 230px;
+  font-size: 150%;
 }
 
-#downloadLink {
-  visibility: unset;
+.downloadButton {
+  text-decoration: none;
 }
 </style>
