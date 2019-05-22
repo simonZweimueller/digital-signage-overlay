@@ -8,23 +8,28 @@
     </div>
     <div id="chooseTime" class="uploadPart">
       <label>Start Tag und Zeit: </label>
-      <input type="datetime-local">
+      <input type="datetime-local" id="start">
       <br><br>
       <label>End Tag und Zeit: </label>
-      <input type="datetime-local">
+      <input type="datetime-local" id="end">
     </div>
   <div id="chooseScreens" class="uploadPart">
     <label>Displays auswählen auf denen die Mitteilung angezeigt werden soll: </label>
     <br><br>
-    <ul id="screensList">
-            <li><input type="checkbox" />3AHITM </li>
-            <li><input type="checkbox" />Aula</li>
-            <li><input type="checkbox" />Keller </li>
-    </ul>
+   <!-- <ul id="screensList">
+            <li><input type="checkbox" class="screen" value="3AHITM"/>3AHITM </li>
+            <li><input type="checkbox" class="screen" value="Aula"/>Aula</li>
+            <li><input type="checkbox" class="screen" value="Keller"/>Keller </li>
+    </ul> -->
+  <select name="screens" id="screens" multiple>
+    <option value="3AHITM" class="screen">3AHITM</option>
+    <option value="Aula" class="screen">Aula</option>
+    <option value="Keller" class="screen">Keller</option>
+  </select>
   </div>
   <div id="sendItAll" class="uploadPart">
     
-     <input type="button" v-on:click="sendAll" value="Mitteilung abschicken"/>
+     <input type="button" v-on:click="sendAllToXibo" value="Mitteilung abschicken"/>
   </div>
   </div>
 </template>
@@ -37,10 +42,28 @@ export default {
   },
   methods: {
     showImage: function() {
-      console.log("test");
-      console.log(document.getElementById("sendMessage").value);
+      let message = document.getElementById("sendMessage").value;
+      console.log(message);
       document.getElementById("imageToShow").innerHTML =
         "<img src=" + document.getElementById("sendMessage").value + ">";
+    },
+    sendAllToXibo: function() {
+      let message = document.getElementById("sendMessage").value;
+      let startTime = document.getElementById("start").value;
+      let endTime = document.getElementById("end").value;
+      //let screens = document.getElementById("screens").selectedOptions.value;
+      let screens = new Array();
+
+      var x = document.getElementById("screens");
+      for (var i = 0; i < x.options.length; i++) {
+        if (x.options[i].selected == true) {
+          screens[i] = x.options[i].value;
+        }
+      }
+
+      console.log(
+        message + " | " + startTime + " | " + endTime + " | " + screens
+      );
     }
   }
 };
