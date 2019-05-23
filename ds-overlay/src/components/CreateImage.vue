@@ -1,6 +1,8 @@
 <template>
   <div>
 
+    <h1>1. Mitteilung erstellen</h1>
+
     <div id="imgCreation" class="creationPart">
           <label>Background Color: </label>
           <input id="bgColor" type="color" />
@@ -33,6 +35,7 @@
           <button v-on:click="addText">Add text</button>
       </div>
 
+        
       <div id="imgDownload" class="creationPart">
        <a href="" class='downloadButton' download='imageDownload.png'>Mitteilung herunterladen</a>
       </div>
@@ -42,7 +45,7 @@
           v-bind:width=imgWidth
           v-bind:height=imgHeight
           id="myCanvas"
-        />
+      />    
 
   </div>
 </template>

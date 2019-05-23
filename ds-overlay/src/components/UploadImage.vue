@@ -1,11 +1,10 @@
 <template>
   <div id="uploadFile">
+    <h1>2. Mitteilung hochladen</h1>
     <div id="chooseMessage" class="uploadPart">
-      <input  type="file" id="sendMessage" accept="image/png" >
-      <input type="button" v-on:click="showImage" value="Anzeigen"/>
-      <br>
-      <div id="imageToShow"></div>
+      <input  type="file" id="sendMessage" accept="image/png" @change="showImage" >
     </div>
+  <img v-if="url" :src="url" width="25%" class="uploadPart"/>
     <div id="chooseTime" class="uploadPart">
       <label>Start Tag und Zeit: </label>
       <input type="datetime-local" id="start">
@@ -16,11 +15,6 @@
   <div id="chooseScreens" class="uploadPart">
     <label>Displays auswählen auf denen die Mitteilung angezeigt werden soll: </label>
     <br><br>
-   <!-- <ul id="screensList">
-            <li><input type="checkbox" class="screen" value="3AHITM"/>3AHITM </li>
-            <li><input type="checkbox" class="screen" value="Aula"/>Aula</li>
-            <li><input type="checkbox" class="screen" value="Keller"/>Keller </li>
-    </ul> -->
   <select name="screens" id="screens" multiple>
     <option value="3AHITM" class="screen">3AHITM</option>
     <option value="Aula" class="screen">Aula</option>
@@ -38,17 +32,19 @@
 export default {
   name: "UploadImage",
   data() {
-    return {};
+    return {
+      url: null
+    };
   },
   methods: {
-    showImage: function() {
-      let message = document.getElementById("sendMessage").value;
-      console.log(message);
-      document.getElementById("imageToShow").innerHTML =
-        "<img src=" + document.getElementById("sendMessage").value + ">";
+    showImage: function(e) {
+      const file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
+
+      console.log(this.url);
     },
     sendAllToXibo: function() {
-      let message = document.getElementById("sendMessage").value;
+      let message = this.url;
       let startTime = document.getElementById("start").value;
       let endTime = document.getElementById("end").value;
       //let screens = document.getElementById("screens").selectedOptions.value;
@@ -86,7 +82,7 @@ export default {
   margin-top: 3%;
 }
 
-#screensList {
+#screens {
   margin-left: 10%;
 }
 </style>
