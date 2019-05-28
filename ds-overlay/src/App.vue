@@ -1,13 +1,20 @@
-
 <template>
   <div id="app">
-   <router-view/>
+    <CreateImage />
+    <UploadImage />
   </div>
 </template>
 
 <script>
+import CreateImage from "./components/CreateImage.vue";
+import UploadImage from "./components/UploadImage.vue";
+
 export default {
-  name: "App"
+  name: "app",
+  components: {
+    CreateImage,
+    UploadImage
+  }
 };
 </script>
 

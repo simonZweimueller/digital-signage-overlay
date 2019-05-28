@@ -13,7 +13,7 @@
       <input type="datetime-local" id="end">
     </div>
   <div id="chooseScreens" class="uploadPart">
-    <label>Displays auswählen auf denen die Mitteilung angezeigt werden soll: </label>
+    <label>Displays auswählen auf, <br> denen die Mitteilung angezeigt werden soll: </label>
     <br><br>
   <select name="screens" id="screens" multiple>
     <option value="3AHITM" class="screen">3AHITM</option>
