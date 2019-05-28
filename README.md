@@ -24,16 +24,23 @@ Fehlermeldung:
 ![Error](/img/error.PNG)
 
 ## Wie führt man das Programm aus:
+### 1 und 2 sind einmalig pro Maschine
+
 ### 1)
 Nodejs downloaden um npm zu bekommen
 
 <https://nodejs.org/en/>
 ### 2)
-node modules herunterladen
+Serve global herunterladen
 
-    npm update
+    npm add serve -g
+    
+<https://www.npmjs.com/package/serve>
 ### 3)
+dist Ordner herunterladen um den build des Projekts zu haben.
+
+### 4)
 App starten und ausführen
 
-    npm start
-und dann im Browser mit localhost:8080 öffnen
+    serve -s dist
+und dann im Browser mit localhost:5000 öffnen
