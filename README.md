@@ -37,7 +37,7 @@ Serve global herunterladen
     
 <https://www.npmjs.com/package/serve>
 ### 3)
-dist Ordner aus dem ds-overlay Ordner herunterladen um den build des Projekts zu haben.
+dist Ordner herunterladen um den build des Projekts zu haben.
 
 ### 4)
 App starten und ausführen
