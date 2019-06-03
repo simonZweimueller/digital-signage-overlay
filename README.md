@@ -27,8 +27,9 @@ Server starten
     node server.js
 ### 4)
 Zu Xibo mit Putty verbinden
-![putty1](/img/putty1.PNG)
-![putty2](/img/putty2.PNG)
+
+![putty1](/img/putty1.PNG=400x)
+![putty2](/img/putty2.PNG=400x)
 
 ### 5)
 Im Browser mit localhost:8081 die index.html öffnen
