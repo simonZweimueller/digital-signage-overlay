@@ -24,22 +24,48 @@ Fehlermeldung:
 ![Error](/img/error.PNG)
 
 ## Wie führt man das Programm aus:
-### 1 und 2 sind einmalig pro Maschine
 
-### 1)
+### Mit dem nodejs server
+
+#### 1)
+server Ordner vom repo downloaden
+
+#### 2)
+Nodejs downloaden 
+<https://nodejs.org/en/>
+
+#### 3)
+Node modules herunterladen
+    npm update
+
+#### 4)
+Server starten
+
+    node server.js
+
+#### 5)
+Im Browser mit localhost:8081 die index.html öffnen
+
+Wenn man das Bild und die Daten abgeschickt hat sieht man im Terminal das json Object mit den benötigten Daten.
+
+### Mit serve
+
+#### 1 und 2 sind einmalig pro Maschine
+
+#### 1)
 Nodejs downloaden um npm zu bekommen
 
 <https://nodejs.org/en/>
-### 2)
+#### 2)
 Serve global herunterladen
 
     npm add serve -g
     
 <https://www.npmjs.com/package/serve>
-### 3)
+#### 3)
 dist Ordner herunterladen um den build des Projekts zu haben.
 
-### 4)
+#### 4)
 App starten und ausführen
 
     serve -s dist
