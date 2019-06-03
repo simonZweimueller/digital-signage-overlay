@@ -1,30 +1,35 @@
 <template>
   <div id="uploadFile">
     <h1>2. Mitteilung hochladen</h1>
+    <form action = "http://127.0.0.1:8081/sendImage" method = "POST" enctype = "multipart/form-data">
     <div id="chooseMessage" class="uploadPart">
-      <input  type="file" id="sendMessage" accept="image/png" @change="showImage" >
+      <input  type="file" id="sendMessage" name="file" accept="image/png" @change="showImage" >
+        <img v-if="url" :src="url" width="15%" class="uploadPart"/>
+       <input type="submit" v-on:click="sendAllToXibo" value="Mitteilung speichern"/>
     </div>
-  <img v-if="url" :src="url" width="25%" class="uploadPart"/>
+    </form>
+
+     <form action = "http://127.0.0.1:8081/sendData" method = "GET">
     <div id="chooseTime" class="uploadPart">
       <label>Start Tag und Zeit: </label>
-      <input type="datetime-local" id="start">
+      <input type="datetime-local" id="start" name="start">
       <br><br>
       <label>End Tag und Zeit: </label>
-      <input type="datetime-local" id="end">
+      <input type="datetime-local" id="end" name="end">
     </div>
   <div id="chooseScreens" class="uploadPart">
     <label>Displays auswählen auf, <br> denen die Mitteilung angezeigt werden soll: </label>
     <br><br>
   <select name="screens" id="screens" multiple>
-    <option value="3AHITM" class="screen">3AHITM</option>
-    <option value="Aula" class="screen">Aula</option>
-    <option value="Keller" class="screen">Keller</option>
+    <option value="3AHITM" class="screen" name="3AHITM">3AHITM</option>
+    <option value="Aula" class="screen"  name="Aula">Aula</option>
+    <option value="Keller" class="screen"  name="Keller">Keller</option>
   </select>
   </div>
   <div id="sendItAll" class="uploadPart">
-    
-     <input type="button" v-on:click="sendAllToXibo" value="Mitteilung abschicken"/>
+     <input type="submit" v-on:click="sendAllToXibo" value="Mitteilung festlegen"/>
   </div>
+  </form>
   </div>
 </template>
 
@@ -40,7 +45,6 @@ export default {
     showImage: function(e) {
       const file = e.target.files[0];
       this.url = URL.createObjectURL(file);
-
       console.log(this.url);
     },
     sendAllToXibo: function() {
