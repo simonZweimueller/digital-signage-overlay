@@ -1,35 +1,28 @@
-# digital-signage-overlay
-an external Website to upload images to xibo
-
-by Leon Tea and Simon Zweimüller
+# xibo-request-test
+Diese Version ist zum Testen von simplen Xibo-Requests.
 
 ## Beschreibung:
+Es gibt 2 Forms (Get Access Token und Create Layout), die beim Submit ein POST an den NodeJS-Server schicken. Der Server schickt dann POST-Requests an Xibo. Der NodeJS-Server schickt die Requests, damit wir keine [CORS-Errors](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors) bekommen. Die Authorization beim Layout erstellen ist zurzeit hardcoded.
 
-Ziel ist es eine Website zu erstellen auf der Benutzer entweder ein Bild direkt hochladen oder einen Text eingeben kann der zu einem Bild konvertiert wird.
-Anschließend kann der Benutzer das Display auswählen auf welchem das Bild angezeigt werden soll.
-Es können Termine vom Benutzer festlegt, die bestimmen wann das Bild angezeigt wird. 
-Zum Schluss wird das Bild zum xibo geschickt.
+### Problem:
+Requests mit Postman funktionieren, aber der von Postman generierte Code, der auf dem NodeJS-Server läuft funktioniert nicht. Beim Access Token haben wir zu viele/wenige Parameter und beim Layout werden die Daten nicht erkannt, die wir mitgeben.
 
-### Aktueller Stand:
+Fehlermeldung beim Anfragen eines Access Token:
+![Access Token Error](/img/error_access_token.PNG)
 
-Der Clientseitige Teil mit react ist fast fertig.
+Fehlermeldung beim Erstellen eines Layouts:
+![Create Layout Error](/img/error_create_layout.PNG)
 
-Zurzeit haben wir Probleme mit dem Zugriff auf die Xibo API. Wir bekommen nämlich keinen Access Token, weil der Browser den Zugriff nicht erlaubt.
-
-Fehlermeldung:
-![Error](/img/error.PNG)
-
-## Wie führt man das Programm aus:
+## how to run:
 ### 1)
-Nodejs downloaden um npm zu bekommen
-
+Nodejs downloaden
 <https://nodejs.org/en/>
 ### 2)
 node modules herunterladen
 
     npm update
 ### 3)
-App starten und ausführen
+Server starten
 
-    npm start
-und dann im Browser mit localhost:8080 öffnen
+    node server.js
+und dann im Browser mit localhost:8081 öffnen
