@@ -35,16 +35,21 @@ Nodejs downloaden
 <https://nodejs.org/en/>
 
 #### 3)
-Node modules herunterladen
+In den server Ordner wechseln
+
+    cd server
+    
+#### 4)
+Node module herunterladen
 
     npm update
 
-#### 4)
+#### 5)
 Server starten
 
     node server.js
 
-#### 5)
+#### 6)
 Im Browser mit localhost:8081 die index.html öffnen
 
 Wenn man das Bild und die Daten abgeschickt hat sieht man im Terminal das json Object mit den benötigten Daten.
