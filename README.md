@@ -8,10 +8,10 @@ Es gibt 2 Forms (Get Access Token und Create Layout), die beim Submit ein POST a
 Requests mit Postman funktionieren, aber der von Postman generierte Code, der auf dem NodeJS-Server läuft funktioniert nicht. Beim Access Token haben wir zu viele/wenige Parameter und beim Layout werden die Daten nicht erkannt, die wir mitgeben.
 
 Fehlermeldung beim Anfragen eines Access Token:
-![Access Token Error](/img/error_access_token.PNG)
+![Access Token Error](/img/error1.PNG)
 
 Fehlermeldung beim Erstellen eines Layouts:
-![Create Layout Error](/img/error_create_layout.PNG)
+![Create Layout Error](/img/error2.PNG)
 
 ## how to run:
 ### 1)
@@ -25,4 +25,14 @@ node modules herunterladen
 Server starten
 
     node server.js
-und dann im Browser mit localhost:8081 öffnen
+### 4)
+Zu Xibo mit Putty verbinden
+![putty1](/img/putty1.PNG)
+![putty2](/img/putty2.PNG)
+
+### 5)
+Im Browser mit localhost:8081 die index.html öffnen
+
+
+## Anmerkung:
+Um das erstellen eines Layouts zu testen muss ein Access Token mit Postman geholt werden, den man dann in die Authorization hardcoded. Mit diesem Token kann man eine Stunde lang arbeiten.
