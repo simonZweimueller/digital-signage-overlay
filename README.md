@@ -1,39 +1,79 @@
-# xibo-request-test
-Diese Version ist zum Testen von simplen Xibo-Requests.
-
+# digital-signage-overlay
+an external Website to upload images to xibo
+			
+by Leon Tea and Simon Zweimüller
+			
 ## Beschreibung:
-Es gibt 2 Forms (Get Access Token und Create Layout), die beim Submit ein POST an den NodeJS-Server schicken. Der Server schickt dann POST-Requests an Xibo. Der NodeJS-Server schickt die Requests, damit wir keine [CORS-Errors](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors) bekommen. Die Authorization beim Layout erstellen ist zurzeit hardcoded.
-
-### Problem:
-Requests mit Postman funktionieren, aber der von Postman generierte Code, der auf dem NodeJS-Server läuft funktioniert nicht. Beim Access Token haben wir zu viele/wenige Parameter und beim Layout werden die Daten nicht erkannt, die wir mitgeben.
-
-Fehlermeldung beim Anfragen eines Access Token:
-![Access Token Error](/img/error1.PNG)
-
-Fehlermeldung beim Erstellen eines Layouts:
-![Create Layout Error](/img/error2.PNG)
-
-## how to run:
-### 1)
-Nodejs downloaden
+			
+Ziel ist es eine Website zu erstellen auf der Benutzer entweder ein Bild direkt hochladen oder einen Text eingeben kann der zu einem Bild konvertiert wird.
+Anschließend kann der Benutzer das Display auswählen auf welchem das Bild angezeigt werden soll.
+Es können Termine vom Benutzer festlegt, die bestimmen wann das Bild angezeigt wird. 
+Zum Schluss wird das Bild zum xibo geschickt.
+			
+![Usecase Diagramm](/img/usecase_diagramm.png)
+			
+![Systemarchitektur](/img/Systemarchitektur.PNG)
+			
+### Aktueller Stand:
+			
+Der Clientseitige Teil mit vue.js ist fast fertig.
+			
+Zurzeit haben wir Probleme mit dem Zugriff auf die Xibo API. Wir bekommen nämlich keinen Access Token, weil der Browser den Zugriff nicht erlaubt.
+			
+Fehlermeldung:
+![Error](/img/error.PNG)
+			
+## Wie führt man das Programm aus:
+			
+### Mit dem nodejs server
+			
+#### 1)
+server Ordner vom repo downloaden
+			
+#### 2)
+Nodejs downloaden 
 <https://nodejs.org/en/>
-### 2)
-node modules herunterladen
-
+			
+#### 3)
+In den server Ordner wechseln
+    cd server
+			
+#### 4)
+Node module herunterladen
     npm update
-### 3)
+			
+#### 5)
 Server starten
-
     node server.js
-### 4)
-Zu Xibo mit Putty verbinden
-
-![putty1](/img/putty1.PNG)
-![putty2](/img/putty2.PNG)
-
-### 5)
+			
+#### 6)
 Im Browser mit localhost:8081 die index.html öffnen
+			
+Wenn man das Bild und die Daten abgeschickt hat sieht man im Terminal das json Object mit den benötigten Daten.
+			
 
+### Mit serve
+			
+#### 1 und 2 sind einmalig pro Maschine
+			
 
-## Anmerkung:
-Um das erstellen eines Layouts zu testen muss ein Access Token mit Postman geholt werden, den man dann in die Authorization hardcoded. Mit diesem Token kann man eine Stunde lang arbeiten.
+#### 1)
+Nodejs downloaden um npm zu bekommen
+<https://nodejs.org/en/>
+	
+#### 2)
+Serve global herunterladen
+    npm add serve -g
+			
+<https://www.npmjs.com/package/serve>
+
+#### 3)
+dist Ordner herunterladen um den build des Projekts zu haben.
+			
+#### 4)
+App starten und ausführen
+			
+    serve -s dist
+
+und dann im Browser mit localhost:5000 öffnen
+
