@@ -1,0 +1,36 @@
+<html>
+  <body>
+    <form action="http://127.0.0.1:8081/get_token" method="POST">
+      <input type="submit" value="Get Access Token" />
+    </form>
+
+    <form
+      action="http://127.0.0.1:8081/imageUpload"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <input type="file" name="file" />
+      <input type="submit" value="Upload file" />
+    </form>
+
+    <form action = "http://127.0.0.1:8081/schedule" method = "POST">
+      <div id="chooseTime" class="uploadPart">
+        <label>Start Tag und Zeit: </label>
+        <input type="datetime-local" id="start" name="start">
+        <br><br>
+        <label>End Tag und Zeit: </label>
+       <input type="datetime-local" id="end" name="end">
+      </div>
+    <div id="chooseScreens" class="uploadPart">
+      <label>Displays auswählen auf, <br> denen die Mitteilung angezeigt werden soll: </label>
+      <br><br>
+    <select name="screens" id="screens" multiple>
+      <option value="2" class="screen" name="3AHITM">3AHITM</option>
+      <option value="10" class="screen"  name="Aula">Aula</option>
+      <option value="11" class="screen"  name="Keller">Keller</option>
+
+      <input type="submit" value="Schedule" />
+    </select>
+    </div>
+  </body>
+</html>
