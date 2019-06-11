@@ -32,19 +32,23 @@ server Ordner vom repo downloaden
 			
 #### 2)
 Nodejs downloaden 
+
 <https://nodejs.org/en/>
 			
 #### 3)
 In den server Ordner wechseln
-    cd server
+
+	cd server
 			
 #### 4)
 Node module herunterladen
-    npm update
+
+	npm update
 			
 #### 5)
 Server starten
-    node server.js
+
+	node server.js
 			
 #### 6)
 Im Browser mit localhost:8081 die index.html öffnen
@@ -54,16 +58,17 @@ Wenn man das Bild und die Daten abgeschickt hat sieht man im Terminal das json O
 
 ### Mit serve
 			
-#### 1 und 2 sind einmalig pro Maschine
-			
+#### 1 und 2 sind einmalig pro Maschine			
 
 #### 1)
 Nodejs downloaden um npm zu bekommen
+
 <https://nodejs.org/en/>
 	
 #### 2)
 Serve global herunterladen
-    npm add serve -g
+
+	npm add serve -g
 			
 <https://www.npmjs.com/package/serve>
 
@@ -73,7 +78,7 @@ dist Ordner herunterladen um den build des Projekts zu haben.
 #### 4)
 App starten und ausführen
 			
-    serve -s dist
+	serve -s dist
 
 und dann im Browser mit localhost:5000 öffnen
 
