@@ -3,7 +3,9 @@
 ### Windows
 
 In "Session" write fill in the same data as followed:
+
 ![putty1](/img/putty1.PNG)
+
 Then fill in "Saved Session" to set a name for the save.
 
 After that go into "Connection > SSH > Tunnels" 
