@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div  id="createNotification">
 
-    <h1>1. Mitteilung erstellen</h1>
+    <h1 class="title">1. Create Notification</h1>
 
     <div id="imgCreation" class="creationPart">
           <label>Background Color: </label>
-          <input id="bgColor" type="color" />
+          <input id="bgColor" type="color"/>
           <br />
-          <button v-on:click="createCanvas">Create Canvas</button>
+          <button v-on:click="createCanvas" id="bgButton">Create Canvas</button>
     </div>
 
      <div id="textCreation" class="creationPart">
           <label>Text:</label>
-          <input type="text" id="msg" />
+          <input type="text" id="msg"/>
           <br />
           <label>Font:</label>
           <select name="font" size="1" id="font">
@@ -20,24 +20,23 @@
             <option>Calibri</option>
           </select>
           <br />
-          <label>Font Color: </label>
+          <label >Text Color: </label>
           <input id="fontColor" type="color" />
           <br />
-          <label>Font Size (in px): </label>
-          <input id="fontSize" type="number" />
+          <label>Text Size (px): </label>
+          <input id="fontSize" type="number" value=150/>
           <br />
-          <label>Font Position width (in px): </label>
+       <!--   <label>Text Position width (in px): </label>
           <input id="fontPWidth" type="number" />
           <br />
-          <label>Font Position height (in px): </label>
+          <label>Tex Position height (in px): </label>
           <input id="fontPHeight" type="number" />
-          <br />
-          <button v-on:click="addText">Add text</button>
+          <br /> -->
+          <button v-on:click="addText" id="textButton">Add text</button>
       </div>
-
-        
+   
       <div id="imgDownload" class="creationPart">
-       <a href="" class='downloadButton' download='imageDownload.png'>Mitteilung herunterladen</a>
+       <a v-bind:href=image class='downloadButton' download='imageDownload.png'>Download</a>
       </div>
 
      <canvas
@@ -45,7 +44,9 @@
           v-bind:width=imgWidth
           v-bind:height=imgHeight
           id="myCanvas"
-      />    
+      />  
+
+      <div class="helpDiv">h</div>  
 
   </div>
 </template>
@@ -56,7 +57,8 @@ export default {
   data() {
     return {
       imgWidth: 1920,
-      imgHeight: 1080
+      imgHeight: 1080,
+      image: ""
     };
   },
   methods: {
@@ -74,20 +76,18 @@ export default {
       let font = document.getElementById("font").value;
       let fontColor = document.getElementById("fontColor").value;
       let fontSize = document.getElementById("fontSize").value;
-      let fontPWidth = document.getElementById("fontPWidth").value;
-      let fontPHeight = document.getElementById("fontPHeight").value;
+      /*  let fontPWidth = document.getElementById("fontPWidth").value;
+      let fontPHeight = document.getElementById("fontPHeight").value; */
 
       ctx.font = fontSize + "px " + font;
       ctx.fillStyle = fontColor;
       ctx.textAlign = "center";
-      ctx.fillText(msg, fontPWidth, fontPHeight);
+      ctx.textBaseline = "middle";
+      ctx.fillText(msg, this.imgWidth / 2, this.imgHeight / 2);
 
       let canvasSave = document.getElementById("myCanvas");
       const d = canvasSave.toDataURL("image/png");
-      document.getElementById("imgDownload").innerHTML =
-        "<a href='" +
-        d +
-        "' class='downloadButton' download='imageDownload.png' style='text-decoration: none'>Mitteilung herunterladen</a>";
+      this.image = d;
     }
   }
 };
@@ -100,49 +100,87 @@ export default {
   margin: 0px;
 }
 
+#createNotification {
+  height: 40vh;
+}
+
 label {
-  margin: 10px;
+  margin: 5px;
   margin-right: 15px;
   margin-left: 0px;
 }
 
-input {
+#msg {
+  margin-left: 6.5vw;
+}
+
+#font {
   margin-top: 10px;
   margin-bottom: 10px;
+  padding: 5px;
+  font-size: 80%;
+  margin-left: 6.5vw;
+}
+
+#fontColor,
+#bgColor {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 100%;
+}
+
+#fontColor {
+  margin-left: 2.7vw;
+}
+
+#fontSize {
+  margin-left: 1vw;
 }
 
 #myCanvas {
-  width: 25%;
+  height: 30vh;
   margin: 20px;
   margin-left: 40px;
 }
 
-#saveImg {
-  float: left;
-  margin: 30px;
-  margin-top: 15.5%;
+#bgButton {
+  margin-top: 19vh;
+}
+
+#textButton {
+  margin-top: 4vh;
+  width: 40%;
 }
 
 .creationPart {
   float: left;
   margin: 30px;
+  margin-top: 1.5vh;
   height: 30%;
-}
-
-.button {
-  margin: 10px;
-  margin-right: 10px;
-  width: 100px;
+  padding: 0;
 }
 
 #imgDownload {
-  width: 250px;
-  margin-top: 230px;
-  font-size: 150%;
+  margin-top: 20vh;
 }
 
 .downloadButton {
+  font-size: 140%;
+  padding: 10px;
+  height: 5vh;
+  border: 2px solid black;
+  text-align: center;
+  outline: none;
   text-decoration: none;
   color: black;
+  border-radius: 5px;
+}
+
+.downloadButton:hover,
+.downloadButton:active {
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
 }
 </style>
