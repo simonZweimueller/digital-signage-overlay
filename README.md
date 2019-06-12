@@ -3,82 +3,82 @@ an external Website to upload images to xibo
 			
 by Leon Tea and Simon Zweimüller
 			
-## Beschreibung:
-			
-Ziel ist es eine Website zu erstellen auf der Benutzer entweder ein Bild direkt hochladen oder einen Text eingeben kann der zu einem Bild konvertiert wird.
-Anschließend kann der Benutzer das Display auswählen auf welchem das Bild angezeigt werden soll.
-Es können Termine vom Benutzer festlegt, die bestimmen wann das Bild angezeigt wird. 
-Zum Schluss wird das Bild zum xibo geschickt.
-			
+## Description:
+
+A website to create and display notifications on a digital signage.
+
 ![Usecase Diagramm](/img/usecase_diagramm.png)
 			
 ![Systemarchitektur](/img/Systemarchitektur.PNG)
 			
-### Aktueller Stand:
-			
-Der Clientseitige Teil mit vue.js ist fast fertig.
-			
-Zurzeit haben wir Probleme mit dem Zugriff auf die Xibo API. Wir bekommen nämlich keinen Access Token, weil der Browser den Zugriff nicht erlaubt.
-			
-Fehlermeldung:
-![Error](/img/error.PNG)
-			
-## Wie führt man das Programm aus:
-			
-### Mit dem nodejs server
+## Usage:
 			
 #### 1)
-server Ordner vom repo downloaden
-			
-#### 2)
-Nodejs downloaden 
+download nodejs
 
 <https://nodejs.org/en/>
-			
-#### 3)
-In den server Ordner wechseln
 
-	cd server
+#### 2)
+connect to xibo
+	ssh <<USER>>@leotux.htl-leonding.ac.at -L 80:172.18.199.159:80
+	
+for windows: <connectToXibo.md>
+
+#### 3)
+download Github-repo
 			
 #### 4)
-Node module herunterladen
+change into the completeApp/server directory
+
+	cd completeApp/server
+			
+#### 5)
+download required node-modules
 
 	npm update
 			
-#### 5)
-Server starten
+#### 6)
+start server
 
 	node server.js
 			
-#### 6)
-Im Browser mit localhost:8081 die index.html öffnen
-			
-Wenn man das Bild und die Daten abgeschickt hat sieht man im Terminal das json Object mit den benötigten Daten.
-			
+#### 7)
+open index.html under localhost:8081
+						
 
-### Mit serve
-			
-#### 1 und 2 sind einmalig pro Maschine			
+### How to change the vue files and build the new app:					
 
 #### 1)
-Nodejs downloaden um npm zu bekommen
+download nodejs
 
 <https://nodejs.org/en/>
 	
-#### 2)
-Serve global herunterladen
-
+#### 2)	
+change into the ds-overlay directory
+	
+	cd ds-overlay
+	
+#### 3)
+download required node-modules and serve
+	
+	npm update
 	npm add serve -g
 			
 <https://www.npmjs.com/package/serve>
 
-#### 3)
-dist Ordner herunterladen um den build des Projekts zu haben.
-			
 #### 4)
-App starten und ausführen
+build after editing the vue-app 
+
+	npm run serve
+	npm run build
+			
+#### 5)
+preview build
 			
 	serve -s dist
 
-und dann im Browser mit localhost:5000 öffnen
+open preview under localhost:5000
+
+#### 6)
+copy the files in the dist directory into the completeApp/public directory so that the new build runs on the nodejs server
 
