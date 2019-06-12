@@ -23,7 +23,7 @@ A website to create and display notifications on a digital signage.
 
 	ssh <<USER>>@leotux.htl-leonding.ac.at -L 80:172.18.199.159:80
 	
-for windows: [How to connect to xibo](connectToXibo.md>)
+for windows: [How to connect to xibo](connectToXibo.md)
 
 
 #### 3) download Github-repo
