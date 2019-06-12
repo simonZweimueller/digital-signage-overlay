@@ -2,7 +2,7 @@
 
 ### Windows
 
-In "Session" write fill in the same data as followed:
+In "Session" fill in the same data as followed:
 
 ![putty1](/img/putty1.PNG)
 
