@@ -47,8 +47,7 @@ for windows: <connectToXibo.md>
 #### 7) open index.html under localhost:8081
 
 
-
-### How to change the vue files and build the new app:					
+## How to change the vue files and build the new app:					
 
 
 #### 1) download nodejs
