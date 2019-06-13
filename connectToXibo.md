@@ -16,4 +16,4 @@ The last step is to go back to "Session" and to save the setting. Click "Open" t
 
 	ssh <<USER>>@<<destination>> -L <<source port>>:<<IP address>>:<<forwarded port>>
 
-Now you have access to xibo under localhost:<<forwarded port>>.
+Now you have access to xibo under localhost:<forwarded_port>.
