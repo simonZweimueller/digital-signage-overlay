@@ -36,7 +36,7 @@ All steps can work independently from each other.
 
 #### 2) connect to xibo
 
-	ssh <<USER>><<destination>> -L <<forwarded port>>
+	ssh <<USER>><<destination>> -L <<source port>>:<<destination>>:<<forwarded port>>
 	
 for windows: [How to connect to xibo](connectToXibo.md)
 
