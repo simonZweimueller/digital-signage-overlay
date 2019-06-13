@@ -10,6 +10,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var accessToken = "";
 var mediaId;
 var data;
+var newId;
 
 app.use(express.static("public"));
 app.use(busboy());
@@ -83,15 +84,22 @@ app.post("/imageUpload", urlencodedParser, function(req, res) {
           deleteOldRevisions: 1
         }
       };
-      data = parseInt(data) + 1; //current Id of the latest uploaded media
-      fs.writeFile("./id.txt", data, err => {
-        if (err) console.log(err);
-        console.log("Successfully Written to File.");
-      });
       request(options, function(error, response, body) {
         if (error) throw new Error(error);
 
         console.log(body);
+        var id = JSON.stringify(body);
+        var arrId1 = id.split(",");
+        var arrId2 = arrId1[4].split(":");
+        newId = arrId2[1];
+        //  accessToken = arrId2[1].replace(/"/, "");
+        //accessToken = accessToken.replace(/"/, "");
+        console.log(newId);
+        data = parseInt(newId); //current Id of the latest uploaded media
+        fs.writeFile("./id.txt", data, err => {
+          if (err) console.log(err);
+          console.log("Successfully Written to File.");
+        });
       });
     });
   });
