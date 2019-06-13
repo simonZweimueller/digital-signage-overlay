@@ -18,6 +18,6 @@ The last step is to go back to "Session" and to save the setting. Click "Open" t
 
 ### Unix / Mac OS
 
-	ssh <<USER>>@leotux.htl-leonding.ac.at -L 80:172.18.199.159:80
+	ssh <<USER>><<destination>> -L <<source port>>:<<destination>>:<<forwarded port>>
 
 Now you have access to xibo under localhost.
