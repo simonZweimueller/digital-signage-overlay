@@ -2,16 +2,12 @@
 
 ### Windows
 
-In "Session" fill in the same data as followed:
-
-![putty1](/img/putty1.PNG)
+In "Session" fill in the destination(Hostname/IP address and Port)
 
 Then fill in "Saved Session" to set a name for the save.
 
 After that go into "Connection > SSH > Tunnels" 
-and add a forwarded port with source port: 80 and fill in your destination.
-Now it should like the picture shown below.
-![putty2](/img/putty2.PNG)
+and add a forwarded port with the desired source port(forwarded port) and fill in your destination(Hostname/IP address and Port).
 
 The last step is to go back to "Session" and to save the setting. Click "Open" to connect to xibo.
 
@@ -20,4 +16,4 @@ The last step is to go back to "Session" and to save the setting. Click "Open" t
 
 	ssh <<USER>><<destination>> -L <<source port>>:<<destination>>:<<forwarded port>>
 
-Now you have access to xibo under localhost.
+Now you have access to xibo under localhost:<<forwarded port>>.
