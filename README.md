@@ -36,7 +36,7 @@ All steps can work independently from each other.
 
 #### 2) connect to xibo
 
-	ssh <<USER>>@leotux.htl-leonding.ac.at -L 80:172.18.199.159:80
+	ssh <<USER>><<destination>> -L <<forwarded port>>
 	
 for windows: [How to connect to xibo](connectToXibo.md)
 
