@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require("body-parser");
 var fs = require("fs");
 var busboy = require("connect-busboy");
-//var FormData = require("form-data");
+var path = process.cwd();
 
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -13,10 +13,11 @@ var data;
 
 app.use(express.static("public"));
 app.use(busboy());
-app.get("/index.html", function(req, res) {
+app.get("/index.html", function (req, res) {
   res.sendFile(__dirname + "/" + "index.html");
 });
 
+//legt den xibo server fest
 var request = require("request");
 var options = {
   method: "POST",
@@ -32,7 +33,8 @@ var options = {
   }
 };
 
-request(options, function(error, response, body) {
+//get access Token
+request(options, function (error, response, body) {
   if (error) throw new Error(error);
 
   var auth = JSON.stringify(eval("(" + body + ")"));
@@ -42,24 +44,26 @@ request(options, function(error, response, body) {
   accessToken = arr2[0].replace(/"/, "");
   accessToken = accessToken.replace(/"/, "");
 
-  console.log(accessToken);
+  //console.log(accessToken);
 });
 
-app.post("/imageUpload", urlencodedParser, function(req, res) {
-  fs.readFile("./id.txt", function(err, buf) {
-    data = buf.toString();
-    mediaId = parseInt(data);
-    console.log(mediaId);
-  });
+//upload a new message (updates the the notification layout on the xibo)
+app.post("/imageUpload", urlencodedParser, function (req, res) {
+  //die letzte id wird im id.txt file gespeichert
+  buffer = fs.readFileSync(path + "\\id.txt");
+  //console.log(buffer.toString());
+  var mediaId = parseInt(buffer.toString());
 
+  //lädt das neue bild hoch
   var fstream;
   req.pipe(req.busboy);
-  req.busboy.on("file", function(fieldname, file, filename) {
+  req.busboy.on("file", function (fieldname, file, filename) {
     var pathImg = "./files/" + filename + "";
     var path = (fstream = fs.createWriteStream(pathImg));
-    console.log(filename);
+    //console.log(filename);
+    //console.log(pathImg);
     file.pipe(fstream);
-    fstream.on("close", function() {
+    fstream.on("close", function () {
       image = {
         path: pathImg
       };
@@ -75,7 +79,7 @@ app.post("/imageUpload", urlencodedParser, function(req, res) {
           files: {
             value: fs.createReadStream(pathImg),
             options: {
-              filename: filename
+              filename: pathImg
             }
           },
           oldMediaId: mediaId,
@@ -83,28 +87,35 @@ app.post("/imageUpload", urlencodedParser, function(req, res) {
           deleteOldRevisions: 1
         }
       };
-      data = parseInt(data) + 1; //current Id of the latest uploaded media
-      fs.writeFile("./id.txt", data, err => {
-        if (err) console.log(err);
-        console.log("Successfully Written to File.");
-      });
-      request(options, function(error, response, body) {
+
+      //aktuallisiert das id.txt file
+      request(options, function (error, response, body) {
         if (error) throw new Error(error);
 
-        console.log(body);
+        var arr1 = body.split(",");
+        var arr2 = arr1[4].split(":");
+
+        //console.log(arr2[1]);
+
+        fs.writeFile("./id.txt", arr2[1], err => {
+          if (err) console.log(err);
+          //console.log("Successfully Written to File.");
+        });
+
       });
     });
   });
   res.redirect("/");
 });
 
-app.post("/schedule", urlencodedParser, function(req, res) {
+//notification schedulen
+app.post("/schedule", urlencodedParser, function (req, res) {
   data = {
     start: new Date(req.body.start),
     end: new Date(req.body.end),
     screens: req.body.screens
   };
-  console.log(data);
+  //console.log(data);
 
   var fData = {
     eventTypeId: 3,
@@ -128,14 +139,15 @@ app.post("/schedule", urlencodedParser, function(req, res) {
     formData: fData
   };
 
-  request(options, function(error, response, body) {
+  request(options, function (error, response, body) {
     if (error) throw new Error(error);
 
-    console.log(body);
+    //console.log(body);
   });
   res.redirect("/");
 });
 
+//date fürs schedulen konvertieren
 function getFormatDate(date) {
   (month = "" + (date.getMonth() + 1)),
     (day = "" + date.getDate()),
@@ -147,9 +159,10 @@ function getFormatDate(date) {
   return [year, month, day].join("-");
 }
 
-var server = app.listen(8081, function() {
+var server = app.listen(8081, function () {
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log("Example app listening at http://%s:%s", host, port);
+  //console.log("Example app listening at http://%s:%s", host, port);
 });
+
